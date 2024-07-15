@@ -10,5 +10,17 @@ router.get("/getAllReferences",async(req,res)=>{
   })
 })
 
+router.post("/addNewReference",async(req,res)=>{
+    try{
+        const  result=await siteService.addReference(req.body)
+        res.status(200).json({
+            data:result
+        })
+    }catch(err){
+        console.log("err",err)
+    }
+   
+})
+
 
 module.exports=router
