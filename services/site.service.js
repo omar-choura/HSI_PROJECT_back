@@ -13,6 +13,17 @@ VALUES ('${name}','${site}');`;
   return await db(sql);
 };
 
+
+const addReferenceWithImage = async (newReference) => {
+  console.log("hello service")
+  const name = newReference.name;
+  const site = newReference.site;
+  const image=newReference.image
+  const sql = `INSERT INTO reference (name,site,image) 
+VALUES ('${name}','${site}','${image}');`;
+  return await db(sql);
+};
+
 module.exports = {
-  getAll,addReference
+  getAll,addReference,addReferenceWithImage 
 };

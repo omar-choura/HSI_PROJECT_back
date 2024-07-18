@@ -11,7 +11,8 @@ app.use(cors()); // Add this line to enable CORS for all routes
 
 // Connection to our database
 sql();
-
+app.use(express.static('./public'));
+app.use('/uploads', express.static('uploads'));
 const referenceRoute = require("./controller/reference.controller");
 app.use("/reference", referenceRoute);
 
