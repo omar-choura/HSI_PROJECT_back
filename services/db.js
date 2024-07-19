@@ -12,7 +12,7 @@ async function sql() {
      const connection = await mysql.createConnection(config.db);
      console.log("sql ",sql)
      const [results, ] = await connection.execute(sql);
-      console.log("results ",results)
+      console.log("results ",results) 
         return results;
       
   }
