@@ -42,12 +42,13 @@ router.post("/addNewReferenceWithImage",upload.single("image"),async(req,res)=>{
     const image=req.file ? req.file.filename :null 
      console.log("image is ",image)
     //const {name,site}=req.body
-    req.body.image="c:/Users/User/Desktop/frontImages"+image
+ 
+    req.body.image=""+image
     console.log("req.body ",req.body)
     if (!req.file) {
       res.status(400).send("no file uploaded");
     }
-    let newReference = siteService.addReferenceWithImage(req.body)
+    let newReference = await siteService.addReferenceWithImage(req.body)
     console.log("new Reference is ",newReference)
     res.status(201).json({
       message:"success to add with upload",
