@@ -8,7 +8,7 @@ async function sql() {
   return connection}
 
   const connection=async(sql)=>{
-    console.log("heeloo")   
+    
      const connection = await mysql.createConnection(config.db);
      console.log("sql ",sql)
      const [results, ] = await connection.execute(sql);
