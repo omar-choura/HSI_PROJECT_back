@@ -9,7 +9,7 @@ const siteService = require("../services/site.service");
 // Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "c:/Users/Admin/Desktop/frontImages");
+    cb(null, "C:/Users/USER/Desktop/frontImages");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
@@ -61,6 +61,7 @@ router.post("/addNewReferenceWithImage", upload.single("image"), async (req, res
 
 // Update reference
 router.put("/updateReference", upload.single("image"), async (req, res) => {
+  console.log("is working ",req.body)
   try {
     const firstName = req.body.firstName;
     if (!firstName) {
@@ -83,7 +84,7 @@ router.put("/updateReference", upload.single("image"), async (req, res) => {
       req.body.image = req.file.filename;
 
       // Delete the old image
-      const filePath = path.join('C:/Users/Admin/Desktop/frontImages/', lastImage);
+      const filePath = path.join('C:/Users/USER/Desktop/frontImages/', lastImage);
       if (fs.existsSync(filePath)) {
         fs.unlink(filePath, (err) => {
           if (err) {
@@ -111,7 +112,7 @@ router.delete("/deleteReference/:name", async (req, res) => {
   try {
     const name = req.params.name;
     const referenceToDelete = await siteService.getReferenceByName(name);
-    const imagePath = path.join('C:/Users/Admin/Desktop/frontImages/', referenceToDelete[0].image);
+    const imagePath = path.join('C:/Users/USER/Desktop/frontImages/', referenceToDelete[0].image);
 
     // Delete the image file
     if (fs.existsSync(imagePath)) {
