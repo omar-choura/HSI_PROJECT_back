@@ -1,10 +1,10 @@
 const config = {
     db: {
       /* don't expose password or any sensitive info, done only for demo */
-       host: "db4free.net",
+       host: "localhost",
       //if mysql is installed on my computer and I work locally host:localhost
-      user: "aymanyaiche",
-      password: "12345678",
+      user: "root",
+      password: "",
       database: "hsibackproject",
       connectTimeout: 60000
     },

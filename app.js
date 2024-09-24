@@ -18,7 +18,7 @@ const referenceRoute = require("./controller/reference.controller");
 app.use("/reference", referenceRoute);
 
 // Serve static files from 'frontImages'
-app.use('/photos', express.static(path.join('C:/Users/USER/Desktop/frontImages')));
+app.use('/photos', express.static(path.join('C:/Users/Administrateur/Desktop/HSI/Deployement/frontImages')));
 
 app.get('/', (req, res) => {
   res.send(`<h1 style="color:Tomato;">Hello</h1><h2>by</h2>`);

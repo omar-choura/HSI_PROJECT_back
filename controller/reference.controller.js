@@ -9,7 +9,8 @@ const siteService = require("../services/site.service");
 // Set up multer for file uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "C:/Users/USER/Desktop/frontImages");
+   // cb(null, "C:/Users/USER/Desktop/frontImages");
+    cb(null,'C:/Users/Administrateur/Desktop/HSI/Deployement/frontImages')
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname);
